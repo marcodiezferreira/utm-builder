@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>utm-builder · Enlaces con UTM sin errores</title>
+  <meta name="description" content="Crea enlaces con UTM para tus campañas sin errores: plantillas, normalización, código QR, lotes e historial. Gratis y sin registro: todo se queda en tu navegador.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232457d6'/%3E%3Cpath d='M9 18a5 5 0 0 1 0-7l3-3a5 5 0 0 1 7 7l-1 1M23 14a5 5 0 0 1 0 7l-3 3a5 5 0 0 1-7-7l1-1' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="envoltura">
+      <h1>utm-builder</h1>
+      <p>Enlaces con UTM para tus campañas, <strong>sin errores</strong> y siempre con el mismo formato. Todo se queda en tu navegador.</p>
+    </div>
+  </header>
+
+  <main class="envoltura rejilla">
+    <section class="tarjeta" aria-labelledby="t-datos">
+      <h2 id="t-datos">1. Tu enlace</h2>
+      <label for="base">Dirección de destino</label>
+      <input id="base" type="url" inputmode="url" placeholder="https://tu-web.com/oferta/" autocomplete="url">
+
+      <p class="etiqueta">Plantillas</p>
+      <div class="plantillas" id="plantillas" role="group" aria-label="Plantillas de fuente y medio"></div>
+
+      <div class="campos">
+        <div><label for="utm_source">Fuente <code>utm_source</code> *</label><input id="utm_source" placeholder="google, newsletter, instagram"></div>
+        <div><label for="utm_medium">Medio <code>utm_medium</code> *</label><input id="utm_medium" placeholder="cpc, email, social"></div>
+        <div><label for="utm_campaign">Campaña <code>utm_campaign</code> *</label><input id="utm_campaign" placeholder="rebajas-otono-2026"></div>
+        <div><label for="utm_term">Término <code>utm_term</code></label><input id="utm_term" placeholder="palabra clave (anuncios)"></div>
+        <div><label for="utm_content">Contenido <code>utm_content</code></label><input id="utm_content" placeholder="boton-azul, banner-lateral"></div>
+        <div><label for="utm_id">ID <code>utm_id</code></label><input id="utm_id" placeholder="id de campaña (opcional)"></div>
+      </div>
+
+      <fieldset class="opciones">
+        <legend>Normalizar al escribir</legend>
+        <label><input type="checkbox" id="op-minusculas" checked> minúsculas</label>
+        <label><input type="checkbox" id="op-tildes" checked> sin tildes ni ñ</label>
+        <label>espacios por <select id="op-separador"><option value="-">guion -</option><option value="_">guion bajo _</option><option value="">no cambiar</option></select></label>
+      </fieldset>
+    </section>
+
+    <section class="tarjeta resultado" aria-labelledby="t-resultado" aria-live="polite">
+      <h2 id="t-resultado">2. Resultado</h2>
+      <ul class="mensajes" id="mensajes"></ul>
+      <output id="enlace" class="enlace" for="base utm_source utm_medium utm_campaign">Rellena la dirección, la fuente, el medio y la campaña.</output>
+      <div class="acciones">
+        <button type="button" id="copiar" disabled>Copiar enlace</button>
+        <button type="button" id="guardar" class="secundario" disabled>Guardar en el historial</button>
+      </div>
+      <div class="qr" id="qr" hidden>
+        <div id="qr-imagen"></div>
+        <div class="acciones">
+          <button type="button" id="qr-png" class="secundario">Descargar QR (PNG)</button>
+          <button type="button" id="qr-svg" class="secundario">Descargar QR (SVG)</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="tarjeta" aria-labelledby="t-lote">
+      <h2 id="t-lote">3. Varios enlaces a la vez</h2>
+      <p class="ayuda">Una dirección por línea. Se les ponen los mismos UTM de arriba.</p>
+      <textarea id="lote" rows="5" placeholder="https://tu-web.com/producto-1/&#10;https://tu-web.com/producto-2/"></textarea>
+      <div class="acciones"><button type="button" id="lote-crear" class="secundario">Crear enlaces</button><button type="button" id="lote-csv" class="secundario" disabled>Descargar CSV</button></div>
+      <ol class="lista-lote" id="lote-resultado"></ol>
+    </section>
+
+    <section class="tarjeta" aria-labelledby="t-historial">
+      <h2 id="t-historial">Historial</h2>
+      <p class="ayuda">Se guarda solo en este navegador.</p>
+      <ol class="historial" id="historial"></ol>
+      <div class="acciones"><button type="button" id="hist-csv" class="secundario">Exportar CSV</button><button type="button" id="hist-borrar" class="peligro">Borrar historial</button></div>
+    </section>
+  </main>
+
+  <footer class="pie envoltura">
+    <p>Hecho por <a href="https://marcodiez.es">Marco Díez</a> · <a href="https://github.com/marcodiezferreira/utm-builder">Código en GitHub</a> · Licencia MIT</p>
+  </footer>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

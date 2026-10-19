@@ -1,0 +1,51 @@
+:root {
+  --fondo: #f6f7fb; --tarjeta: #ffffff; --texto: #1c2030; --suave: #5b6275; --linea: #e3e6ef;
+  --acento: #2457d6; --acento-texto: #ffffff; --aviso: #8a5a00; --aviso-fondo: #fff4dc; --error: #b42318; --error-fondo: #fde8e6;
+  --radio: 14px; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --fondo: #0d0f16; --tarjeta: #161a24; --texto: #eef0f6; --suave: #9aa2b6; --linea: #272d3c;
+    --acento: #6c95ff; --acento-texto: #0d0f16; --aviso: #ffd27a; --aviso-fondo: #3a2c0b; --error: #ff8a7f; --error-fondo: #3b1512; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fondo); color: var(--texto); line-height: 1.5; }
+.envoltura { width: min(1120px, 100% - 32px); margin-inline: auto; }
+.cabecera { padding: 40px 0 24px; }
+.cabecera h1 { margin: 0 0 6px; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.03em; }
+.cabecera p { margin: 0; color: var(--suave); max-width: 60ch; }
+.rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 20px; padding-bottom: 32px; }
+.tarjeta { background: var(--tarjeta); border: 1px solid var(--linea); border-radius: var(--radio); padding: 22px; min-width: 0; }
+.tarjeta h2 { margin: 0 0 14px; font-size: 1.1rem; }
+label, .etiqueta { display: block; font-size: 0.86rem; font-weight: 600; margin: 12px 0 6px; }
+code { font-size: 0.78rem; color: var(--suave); font-weight: 400; }
+input[type=url], input:not([type]), textarea, select {
+  width: 100%; font: inherit; color: inherit; background: transparent; border: 1px solid var(--linea); border-radius: 10px; padding: 10px 12px;
+}
+input:focus, textarea:focus, select:focus, button:focus-visible { outline: 2px solid var(--acento); outline-offset: 1px; }
+.campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0 14px; }
+.plantillas { display: flex; flex-wrap: wrap; gap: 6px; }
+.plantillas button { font-size: 0.8rem; padding: 6px 10px; }
+.opciones { border: 1px dashed var(--linea); border-radius: 10px; margin-top: 16px; padding: 8px 12px 12px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.opciones legend { font-size: 0.8rem; color: var(--suave); padding: 0 4px; }
+.opciones label { display: inline-flex; align-items: center; gap: 6px; font-weight: 400; margin: 6px 0 0; }
+.opciones select { width: auto; padding: 4px 8px; }
+button { font: inherit; font-weight: 600; cursor: pointer; border-radius: 10px; border: 1px solid var(--acento); background: var(--acento); color: var(--acento-texto); padding: 10px 14px; }
+button.secundario { background: transparent; color: var(--acento); }
+button.peligro { background: transparent; color: var(--error); border-color: var(--error); }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+.acciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.enlace { display: block; word-break: break-all; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.9rem;
+  background: var(--fondo); border: 1px solid var(--linea); border-radius: 10px; padding: 12px; min-height: 3.2em; }
+.mensajes { list-style: none; padding: 0; margin: 0 0 10px; display: grid; gap: 6px; }
+.mensajes li { font-size: 0.85rem; padding: 8px 10px; border-radius: 8px; }
+.mensajes .error { background: var(--error-fondo); color: var(--error); }
+.mensajes .aviso { background: var(--aviso-fondo); color: var(--aviso); }
+.qr { margin-top: 18px; }
+#qr-imagen svg { width: 180px; height: 180px; background: #fff; border-radius: 10px; padding: 6px; display: block; }
+.ayuda { margin: 0 0 8px; color: var(--suave); font-size: 0.86rem; }
+.lista-lote, .historial { padding-left: 1.2em; margin: 12px 0 0; display: grid; gap: 8px; font-size: 0.85rem; }
+.lista-lote li, .historial li { word-break: break-all; }
+.historial .fecha { color: var(--suave); display: block; font-size: 0.75rem; }
+.lista-lote .error { color: var(--error); }
+.pie { color: var(--suave); font-size: 0.85rem; padding: 8px 0 40px; }
+.pie a { color: inherit; }

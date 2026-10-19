@@ -1,0 +1,9 @@
+{
+  "name": "utm-builder",
+  "private": true,
+  "type": "module",
+  "description": "Crea enlaces con UTM sin errores: plantillas, normalización, código QR, lotes e historial. App web sin servidor.",
+  "scripts": { "test": "node --test test/utm.test.mjs" },
+  "author": "Marco Díez (https://marcodiez.es)",
+  "license": "MIT"
+}
