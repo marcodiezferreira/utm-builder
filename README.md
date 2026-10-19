@@ -1,7 +1,5 @@
 # utm-builder
 
-> **EN** · A no-backend web app to build UTM-tagged links without mistakes: presets (Google Ads, Meta, newsletter…), automatic normalization (lowercase, no accents, consistent separators), QR code (PNG/SVG), bulk mode, local history and CSV export. Plain HTML + JS, runs on GitHub Pages. Docs below in Spanish.
-
 **Crea enlaces con UTM para tus campañas, sin errores y siempre con el mismo formato.**
 
 👉 **Pruébala:** https://marcodiezferreira.github.io/utm-builder/
